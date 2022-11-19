@@ -32,3 +32,10 @@ while running :
         if event.type == pygame.QUIT:
             running = False
             pygame.quit()
+        #Détecter si un joueur lache une touche du clavier
+        elif event.type == pygame.KEYDOWN:
+            #la touche utilisée
+            if event.key == pygame.K_RIGHT:
+                game.player.move_right()
+            elif event.key == pygame.K_LEFT:
+                game.player.move_left()
