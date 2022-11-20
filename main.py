@@ -27,7 +27,6 @@ while running :
     for projectile in game.player.all_projectiles:
         projectile.move()
 
-
     #Rajouter le projectile 
     game.player.all_projectiles.draw(screen)
 
