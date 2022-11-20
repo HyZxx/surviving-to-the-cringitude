@@ -27,6 +27,10 @@ while running :
     for projectile in game.player.all_projectiles:
         projectile.move()
 
+    #Rajoute les monstres du jeu
+    for monster in game.all_monsters:
+        monster.forward()
+
     #Rajouter le projectile 
     game.player.all_projectiles.draw(screen)
 
