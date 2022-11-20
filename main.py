@@ -6,7 +6,7 @@ pygame.init()
 pygame.display.set_caption("Survive to comet") #Titre de la fenetre
 screen = pygame.display.set_mode((1080,720)) #Taille de la fenetre
 
-#Importer l'asset d'arrière plan du jeu
+#Importater l'arrière plan du jeu
 background = pygame.image.load('assets/bg.jpg')
 
 #charger le jeu
@@ -17,11 +17,17 @@ running = True
 
 while running : 
 
-    #Appliquer l'arrière plan du jeu
+    #Rajouter l'arrière plan
     screen.blit(background, (0,-200))
 
-    #Appliquer le joueur
+    #Rajouter le joueur
     screen.blit(game.player.image, game.player.rect)
+
+    #Bordure du jeu et touche de déplacement
+    if game.pressed.get(pygame.K_RIGHT) and game.player.rect.x + game.player.rect.width < 1110:
+        game.player.move_right()
+    elif game.pressed.get(pygame.K_LEFT) and game.player.rect.x > -30:
+        game.player.move_left()    
 
     #Mettre a jour l'écran
     pygame.display.flip()
@@ -34,8 +40,6 @@ while running :
             pygame.quit()
         #Détecter si un joueur lache une touche du clavier
         elif event.type == pygame.KEYDOWN:
-            #la touche utilisée
-            if event.key == pygame.K_RIGHT:
-                game.player.move_right()
-            elif event.key == pygame.K_LEFT:
-                game.player.move_left()
+            game.pressed[event.key] = True
+        elif event.type == pygame.KEYUP:
+            game.pressed[event.key] = False
