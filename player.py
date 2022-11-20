@@ -17,8 +17,7 @@ class Player(pygame.sprite.Sprite):
 
     def launch_projectile(self):
         #creer l'instance du projectile du joueur
-        projectile = Projectile()
-        self.all_projectiles.add(Projectile())
+        self.all_projectiles.add(Projectile(self))
 
 
     #Déplacement du joueur
