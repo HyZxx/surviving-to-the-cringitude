@@ -23,6 +23,9 @@ while running :
     #Rajouter le joueur
     screen.blit(game.player.image, game.player.rect)
 
+    #Rajouter le projectile 
+    game.player.all_projectiles.draw(screen)
+
     #Bordure du jeu et touche de déplacement
     if game.pressed.get(pygame.K_RIGHT) and game.player.rect.x + game.player.rect.width < 1110:
         game.player.move_right()
@@ -38,8 +41,11 @@ while running :
         if event.type == pygame.QUIT:
             running = False
             pygame.quit()
-        #Détecter si un joueur lache une touche du clavier
+        #Détecter les touches du clavier
         elif event.type == pygame.KEYDOWN:
             game.pressed[event.key] = True
+            #Détecter si le projectile est déclenché
+            if event.key == pygame.K_SPACE:
+                game.player.launch_projectile()
         elif event.type == pygame.KEYUP:
             game.pressed[event.key] = False
