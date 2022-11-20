@@ -1,7 +1,7 @@
 import pygame
 
 #Créer le monstre
-class Monster(pygame.srpite.Sprite):
+class Monster(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
         self.health = 100

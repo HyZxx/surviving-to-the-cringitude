@@ -30,6 +30,9 @@ while running :
     #Rajouter le projectile 
     game.player.all_projectiles.draw(screen)
 
+    #Ensemble d'image du groupe de monstre
+    game.all_monsters.draw(screen)
+
     #Bordure du jeu et touche de déplacement
     if game.pressed.get(pygame.K_RIGHT) and game.player.rect.x + game.player.rect.width < 1110:
         game.player.move_right()

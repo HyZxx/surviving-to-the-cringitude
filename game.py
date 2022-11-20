@@ -10,7 +10,7 @@ class Game:
         #groupe de monstre
         self.all_monsters = pygame.sprite.Group()
         self.pressed = {}
-        self.spawn_monster
+        self.spawn_monster()
 
     def spawn_monster(self):
         monster = Monster()
