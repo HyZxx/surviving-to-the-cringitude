@@ -3,6 +3,10 @@ import math
 from game import Game
 pygame.init()
 
+#définir une clock
+clock = pygame.time.Clock()
+FPS = 60
+
 ####################  FENETRE DU JEU  ####################
 pygame.display.set_caption("Survive to comet") #Titre de la fenetre
 screen = pygame.display.set_mode((1080,720)) #Taille de la fenetre
@@ -67,4 +71,6 @@ while running :
             if play_button_rect.collidepoint(event.pos):
                 #Mettre le jeu en mode "lancé"
                 game.start()
+    #Fixer le nom de fps sur ma clock
+    clock.tick(FPS)
 
