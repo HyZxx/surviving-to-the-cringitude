@@ -23,6 +23,9 @@ while running :
     #Rajouter le joueur
     screen.blit(game.player.image, game.player.rect)
 
+    #Actualise la barre de vie du joueur
+    game.player.update_health_bar(screen)
+
     #Rajouter les projectiles du joueur
     for projectile in game.player.all_projectiles:
         projectile.move()
@@ -30,6 +33,7 @@ while running :
     #Rajoute les monstres du jeu
     for monster in game.all_monsters:
         monster.forward()
+        monster.update_health_bar(screen)
 
     #Rajouter le projectile 
     game.player.all_projectiles.draw(screen)
