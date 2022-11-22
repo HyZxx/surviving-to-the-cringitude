@@ -7,7 +7,7 @@ pygame.display.set_caption("Survive to comet") #Titre de la fenetre
 screen = pygame.display.set_mode((1080,720)) #Taille de la fenetre
 
 #Importater l'arrière plan du jeu
-background = pygame.image.load('assets/bg.jpg')
+background = pygame.image.load('assets/bg2.jpg').convert_alpha()
 
 #charger le jeu
 game = Game()
@@ -18,7 +18,7 @@ running = True
 while running : 
 
     #Rajouter l'arrière plan
-    screen.blit(background, (0,-200))
+    screen.blit(background, (-1600,-1200))
 
     #Rajouter le joueur
     screen.blit(game.player.image, game.player.rect)
