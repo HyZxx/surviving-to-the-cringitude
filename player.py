@@ -11,7 +11,7 @@ class Player(pygame.sprite.Sprite):
         self.attack = 10
         self.velocity = 4
         self.all_projectiles = pygame.sprite.Group()
-        self.image = pygame.image.load('assets/knight.png').convert_alpha()
+        self.image = pygame.image.load('assets/player2.png').convert_alpha()
         self.image = pygame.transform.scale(self.image, (140, 160))
         self.rect = self.image.get_rect()
         self.rect.x = 400
