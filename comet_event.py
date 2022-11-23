@@ -6,7 +6,7 @@ class CometFallEvent:
     #chargement -> Compteur
     def __init__(self,game):
         self.percent = 0
-        self.percent_speed = 30
+        self.percent_speed = 25
         self.game = game
         self.fall_mode = False
         #définir un groupe de sprite 
@@ -20,8 +20,10 @@ class CometFallEvent:
         self.percent = 0
 
     def meteor_fall(self):
-        #apparation d'un meteor
-        self.all_comets.add(Comet(self))
+        #boucle les valeurs entre 1 et 10
+        for i in range(1,10):
+            #apparation d'un meteor
+            self.all_comets.add(Comet(self))
 
     def attempt_fall(self):
         #jauge d'event remplis

@@ -9,7 +9,7 @@ class Monster(pygame.sprite.Sprite):
         self.health = 100
         self.max_health = 100
         self.attack = 0.2
-        self.velocity = random.randint(1,3) 
+        self.velocity = random.randint(2,3) 
         self.image = pygame.image.load('assets/ogre.png').convert_alpha()
         self.image = pygame.transform.scale(self.image, (120, 120))
         self.rect = self.image.get_rect()
@@ -31,9 +31,9 @@ class Monster(pygame.sprite.Sprite):
             if  self.game.comet_event.is_full_loaded():
                 #Retire le jeu
                 self.game.all_monsters.remove(self)
-
                 #Déclenchement de comet
-                self.game.attempt_fall()
+                self.game.comet_event.attempt_fall()
+
 
     def update_health_bar(self, surface):
 
