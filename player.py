@@ -1,18 +1,17 @@
 import pygame
 from projectile import Projectile
+import animation
 
 #Creer le joueur
-class Player(pygame.sprite.Sprite):
+class Player(animation.AnimateSprite):
     def __init__(self, game):
-        super().__init__()
+        super().__init__('player')
         self.game = game
         self.health = 100
         self.max_health = 100
         self.attack = 10
         self.velocity = 5
         self.all_projectiles = pygame.sprite.Group()
-        self.image = pygame.image.load('assets/player2.png').convert_alpha()
-        self.image = pygame.transform.scale(self.image, (140, 160))
         self.rect = self.image.get_rect()
         self.rect.x = 400
         self.rect.y = 500
@@ -24,6 +23,9 @@ class Player(pygame.sprite.Sprite):
             #si le joueur n'a pu de vie
             self.game.game_over()
 
+    def update_animation(self):
+        self.animate()
+
     def update_health_bar(self, surface):
 
         #Creer le contour de la barre de vie 
@@ -34,6 +36,8 @@ class Player(pygame.sprite.Sprite):
     def launch_projectile(self):
         #creer l'instance du projectile du joueur
         self.all_projectiles.add(Projectile(self))
+        #Démarre l'anim du lancé
+        self.start_animation()
 
     #Déplacement du joueur
     def move_right(self):

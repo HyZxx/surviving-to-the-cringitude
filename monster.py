@@ -1,20 +1,21 @@
 import pygame
 import random
+import animation
+
 
 #Constructeur du monstre
-class Monster(pygame.sprite.Sprite):
+class Monster(animation.AnimateSprite):
     def __init__(self, game):
-        super().__init__()
+        super().__init__("ogre")
         self.game = game
         self.health = 100
         self.max_health = 100
-        self.attack = 0.2
-        self.velocity = random.randint(2,3) 
-        self.image = pygame.image.load('assets/ogre.png').convert_alpha()
-        self.image = pygame.transform.scale(self.image, (120, 120))
+        self.attack = 0.3
+        self.velocity = random.randint(1,3) 
         self.rect = self.image.get_rect()
         self.rect.x = 1000 + random.randint(0, 300)
-        self.rect.y = 540
+        self.rect.y = 520
+        self.start_animation()
 
     def damage(self, amount):
         #infliger des dégats
@@ -34,6 +35,8 @@ class Monster(pygame.sprite.Sprite):
                 #Déclenchement de comet
                 self.game.comet_event.attempt_fall()
 
+    def update_animation(self):
+        self.animate(loop=True)
 
     def update_health_bar(self, surface):
 
@@ -50,3 +53,10 @@ class Monster(pygame.sprite.Sprite):
         else:
             #infliger des dégats (au joueur)
             self.game.player.damage(self.attack)
+
+#Définir la classe Ogre
+class Ogre(Monster):
+
+    def __init__(self, game):
+        super().__init__(game, "Ogre")
+        
