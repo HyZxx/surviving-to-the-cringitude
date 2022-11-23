@@ -73,4 +73,3 @@ while running :
                 game.start()
     #Fixer le nom de fps sur ma clock
     clock.tick(FPS)
-
