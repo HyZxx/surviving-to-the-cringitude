@@ -38,6 +38,8 @@ class Player(animation.AnimateSprite):
         self.all_projectiles.add(Projectile(self))
         #Démarre l'anim du lancé
         self.start_animation()
+        #jouer le tir 
+        self.game.sound_manager.play('tir')
 
     #Déplacement du joueur
     def move_right(self):

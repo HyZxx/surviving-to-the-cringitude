@@ -62,7 +62,13 @@ while running :
             game.pressed[event.key] = True
             #Détecter si le projectile est déclenché
             if event.key == pygame.K_SPACE:
-                game.player.launch_projectile()
+                if game.is_playing:
+                    game.player.launch_projectile()
+                else:
+                    #Mettre le jeu en mode "lancé"
+                    game.start()
+                    #jouer le son 
+                    game.sound_manager.play('click')
         elif event.type == pygame.KEYUP:
             game.pressed[event.key] = False
 
@@ -71,5 +77,7 @@ while running :
             if play_button_rect.collidepoint(event.pos):
                 #Mettre le jeu en mode "lancé"
                 game.start()
+                #jouer le son 
+                game.sound_manager.play('click')
     #Fixer le nom de fps sur ma clock
     clock.tick(FPS)
