@@ -4,9 +4,11 @@ import pygame
 class AnimateSprite(pygame.sprite.Sprite):
 
     #Définir a faire a la création d'entité
-    def __init__(self, sprite_name):
+    def __init__(self, sprite_name, size=(150,150)):
         super().__init__()
+        self.size = size
         self.image = pygame.image.load(f'assets/{sprite_name}.png').convert_alpha()
+        self.imagee = pygame.transform.scale(self.image, size)
         self.current_image = 0 #commencer l'anime a l'image 0
         self.images = animations.get(sprite_name)
         self.animation = False
@@ -27,7 +29,7 @@ class AnimateSprite(pygame.sprite.Sprite):
             if self.current_image >= len(self.images):
                 #Remettre l'anim au départ
                 self.current_image = 0
-                
+
                 #Vérifie si l'anim n'est pas en boucle
                 if loop is False:
                     #Désactivation de l'anim
@@ -36,6 +38,7 @@ class AnimateSprite(pygame.sprite.Sprite):
 
             #Modifier l'image précedente par la suivante
             self.image = self.images[self.current_image]
+            self.image = pygame.transform.scale(self.image, self.size)
 
 
 #Définir fonction pour charger l'image d'un sprite
@@ -57,6 +60,7 @@ def load_animation_images(sprite_name):
 #ogre -> [ogre1.png, ogre2.png, ...]
 animations = {
     'ogre': load_animation_images('ogre'),
-    'player': load_animation_images('player')
+    'player': load_animation_images('player'),
+    'alien': load_animation_images('alien')
 }
 

@@ -1,6 +1,6 @@
 import pygame
 from player import Player
-from monster import Monster
+from monster import ogre,alien
 from comet_event import CometFallEvent
 
 #Créer la representation du jeu
@@ -20,8 +20,9 @@ class Game:
 
     def start(self):
         self.is_playing = True
-        self.spawn_monster()
-        self.spawn_monster()
+        self.spawn_monster(ogre)
+        self.spawn_monster(ogre)
+        self.spawn_monster(alien)
 
     def game_over(self):
         #remettre a 0 le jeu 
@@ -76,6 +77,5 @@ class Game:
     def check_collision(self, sprite, group):
         return pygame.sprite.spritecollide(sprite, group, False, pygame.sprite.collide_mask)
 
-    def spawn_monster(self):
-        monster = Monster(self)
-        self.all_monsters.add(monster)
+    def spawn_monster(self,monser_class_name):
+        self.all_monsters.add(monser_class_name.__call__(self))

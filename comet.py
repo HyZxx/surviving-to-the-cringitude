@@ -23,8 +23,8 @@ class Comet(pygame.sprite.Sprite):
             #Remettre la jauge au départ
             self.comet_event.reset_percent()
             #Apparaitre 2 monstre 
-            self.comet_event.game.spawn_monster()
-            self.comet_event.game.spawn_monster()
+            self.comet_event.game.start()
+            
 
     def fall(self):
         self.rect.y += self.velocity
