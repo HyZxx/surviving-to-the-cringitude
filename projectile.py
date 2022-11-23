@@ -42,3 +42,4 @@ class Projectile(pygame.sprite.Sprite):
             #supprime le projectile
             self.remove()
             
+            
