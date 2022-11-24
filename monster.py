@@ -69,7 +69,7 @@ class ogre(Monster):
     def __init__(self, game):
         super().__init__(game, "ogre", (130,130))
         self.set_speed(3)
-        self.set_loot_amount(20)
+        self.set_loot_amount(random.randint(5,10))
 
 #définir la classe Alien 
 class alien(Monster):
