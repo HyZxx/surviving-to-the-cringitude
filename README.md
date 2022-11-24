@@ -1,4 +1,4 @@
-# Surviving The Ogres
+# Surviving To The Cringitude
 
 ## About the game:
 
