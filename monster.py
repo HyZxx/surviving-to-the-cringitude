@@ -10,7 +10,7 @@ class Monster(animation.AnimateSprite):
         self.game = game
         self.health = 100
         self.max_health = 100
-        self.attack = 0.3
+        self.attack = 0.4
         self.rect = self.image.get_rect()
         self.rect.x = 1000 + random.randint(0, 300)
         self.rect.y = 520 - offset

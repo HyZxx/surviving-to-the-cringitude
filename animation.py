@@ -1,4 +1,5 @@
 import pygame
+import random
 
 #Constructeur pour les animations
 class AnimateSprite(pygame.sprite.Sprite):
@@ -49,7 +50,7 @@ def load_animation_images(sprite_name):
     path = f"assets/{sprite_name}/{sprite_name}"
 
     #boucle sur chaque image dans ce dossier
-    for num in range(1,3): #Jusqu'a combien d'image va t'il récup dans un dossier
+    for num in range(1,10): #Jusqu'a combien d'image va t'il récup dans un dossier
         image_path = path + str(num) + '.png'
         images.append(pygame.image.load(image_path))
 

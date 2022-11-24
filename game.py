@@ -46,11 +46,11 @@ class Game:
     def update(self, screen):
         #Afficher le score sur l'écran
         score_text = self.font.render(f"Score : {self.score}", 1, (0,0,0))
-        screen.blit(score_text, (20, 20))
+        screen.blit(score_text, (500,50))
 
         #Rajouter le joueur
         screen.blit(self.player.image, self.player.rect)
-
+        
         #Actualise la barre de vie du joueur
         self.player.update_health_bar(screen)
 

@@ -8,24 +8,25 @@ clock = pygame.time.Clock()
 FPS = 60
 
 ####################  FENETRE DU JEU  ####################
-pygame.display.set_caption("Survive to comet") #Titre de la fenetre
+pygame.display.set_caption("Survive to the cringitude") #Titre de la fenetre
 screen = pygame.display.set_mode((1080,720)) #Taille de la fenetre
 
 #Importater l'arrière plan du jeu
-background = pygame.image.load('assets/bg2.jpg').convert_alpha()
+background = pygame.image.load('assets/bg.jpg').convert_alpha()
 
 #Importer la bannière
 banner = pygame.image.load('assets/banner.png').convert_alpha()
 banner = pygame.transform.scale(banner, (500,500))
 banner_rect = banner.get_rect()
 banner_rect.x = math.ceil(screen.get_width() / 4)
+banner_rect.y = math.ceil(screen.get_height() / 12)
 
 #Importer le bouton
 play_button = pygame.image.load('assets/button.png').convert_alpha()
-play_button = pygame.transform.scale(play_button, (400,150))
+play_button = pygame.transform.scale(play_button, (250,150))
 play_button_rect = play_button.get_rect()
-play_button_rect.x = math.ceil(screen.get_width() / 3.33)
-play_button_rect.y = math.ceil(screen.get_height() / 1.80)
+play_button_rect.x = math.ceil(screen.get_width() / 2.80)
+play_button_rect.y = math.ceil(screen.get_height() / 1.70)
 
 #charger le jeu
 game = Game()
@@ -36,7 +37,7 @@ running = True
 while running : 
 
     #Rajouter l'arrière plan
-    screen.blit(background, (-1600,-1200))    
+    screen.blit(background, (0,0))    
 
     #Vérifie si le jeu a commencé
     if game.is_playing:
