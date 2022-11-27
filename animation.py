@@ -62,6 +62,6 @@ def load_animation_images(sprite_name):
 animations = {
     'ogre': load_animation_images('ogre'),
     'player': load_animation_images('player'),
-    'alien': load_animation_images('alien')
+    'shrek': load_animation_images('shrek')
 }
 

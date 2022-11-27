@@ -37,7 +37,7 @@ running = True
 while running : 
 
     #Rajouter l'arrière plan
-    screen.blit(background, (0,0))    
+    screen.blit(background, (0,0))
 
     #Vérifie si le jeu a commencé
     if game.is_playing:

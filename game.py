@@ -1,6 +1,6 @@
 import pygame
 from player import Player
-from monster import ogre,alien
+from monster import ogre,shrek
 from comet_event import CometFallEvent
 from sounds import SoundManager
 
@@ -28,7 +28,7 @@ class Game:
         self.is_playing = True
         self.spawn_monster(ogre)
         self.spawn_monster(ogre)
-        self.spawn_monster(alien)
+        self.spawn_monster(shrek)
 
     def add_score(self, points=10):
         self.score += points
@@ -37,6 +37,7 @@ class Game:
         #remettre a 0 le jeu 
         self.all_monsters = pygame.sprite.Group()
         self.comet_event.all_comets = pygame.sprite.Group()
+        self.player.all_projectiles = pygame.sprite.Group()
         self.player.health = self.player.max_health
         self.comet_event.reset_percent()
         self.is_playing = False
