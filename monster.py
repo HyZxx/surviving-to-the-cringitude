@@ -71,8 +71,8 @@ class ogre(Monster):
         self.set_speed(3)
         self.set_loot_amount(random.randint(5,10))
 
-#définir la classe Alien 
-class alien(Monster):
+#définir la classe Shrek
+class shrek(Monster):
 
     def __init__(self, game):
         super().__init__(game, "shrek", (300,300), 140)
