@@ -6,7 +6,7 @@ class Comet(pygame.sprite.Sprite):
     def __init__(self, comet_event):
         super().__init__()
         #Définir l'image a comet
-        self.image = pygame.image.load('assets/comet.png').convert_alpha()
+        self.image = pygame.image.load('assets/Elodiecosta.png').convert_alpha()
         self.rect = self.image.get_rect()
         self.attack = 20
         self.velocity = random.randint(2,3)

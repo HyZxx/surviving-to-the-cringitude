@@ -28,6 +28,13 @@ play_button_rect = play_button.get_rect()
 play_button_rect.x = math.ceil(screen.get_width() / 2.80)
 play_button_rect.y = math.ceil(screen.get_height() / 1.70)
 
+#Importer le bouton Instagram
+play_button = pygame.image.load('assets/instagram.png').convert_alpha()
+play_button = pygame.transform.scale(play_button, (50,50))
+play_button_rect = play_button.get_rect()
+play_button_rect.x = math.ceil(screen.get_width() / 3.80)
+play_button_rect.y = math.ceil(screen.get_height() / 2.00) ######################################
+
 #charger le jeu
 game = Game()
 
@@ -48,6 +55,7 @@ while running :
         #Ajoute l'écran de bienvenue
         screen.blit(play_button, (play_button_rect))
         screen.blit(banner, banner_rect)
+
 
     #Mettre a jour l'écran
     pygame.display.flip()
