@@ -1,5 +1,6 @@
 import pygame
 import math
+import webbrowser
 from game import Game
 pygame.init()
 
@@ -29,11 +30,25 @@ play_button_rect.x = math.ceil(screen.get_width() / 2.80)
 play_button_rect.y = math.ceil(screen.get_height() / 1.70)
 
 #Importer le bouton Instagram
-play_button = pygame.image.load('assets/instagram.png').convert_alpha()
-play_button = pygame.transform.scale(play_button, (50,50))
-play_button_rect = play_button.get_rect()
-play_button_rect.x = math.ceil(screen.get_width() / 3.80)
-play_button_rect.y = math.ceil(screen.get_height() / 2.00) ######################################
+play_insta = pygame.image.load('assets/reseauxsociaux/instagram.png').convert_alpha()
+play_insta = pygame.transform.scale(play_insta, (50,50))
+play_insta_rect = play_insta.get_rect()
+play_insta_rect.x = screen.get_width() - 70
+play_insta_rect.y = screen.get_height() - 700
+
+#Importer le bouton TikTok
+play_tiktok = pygame.image.load('assets/reseauxsociaux/tiktok.png').convert_alpha()
+play_tiktok = pygame.transform.scale(play_tiktok, (50,50))
+play_tiktok_rect = play_tiktok.get_rect()
+play_tiktok_rect.x = screen.get_width() - 130
+play_tiktok_rect.y = screen.get_height() - 700
+
+#Importer le bouton Youtube
+play_youtube = pygame.image.load('assets/reseauxsociaux/youtube.png').convert_alpha()
+play_youtube = pygame.transform.scale(play_youtube, (50,50))
+play_youtube_rect = play_youtube.get_rect()
+play_youtube_rect.x = screen.get_width() - 190
+play_youtube_rect.y = screen.get_height() - 700
 
 #charger le jeu
 game = Game()
@@ -54,6 +69,9 @@ while running :
     else:
         #Ajoute l'écran de bienvenue
         screen.blit(play_button, (play_button_rect))
+        screen.blit(play_insta, play_insta_rect)
+        screen.blit(play_tiktok, play_tiktok_rect)
+        screen.blit(play_youtube, play_youtube_rect)
         screen.blit(banner, banner_rect)
 
 
@@ -83,6 +101,12 @@ while running :
 
         elif event.type == pygame.MOUSEBUTTONDOWN:
             #Vérifie si souris est en collision avec bouton 
+            if play_insta_rect.collidepoint(event.pos):
+                webbrowser.open('https://instagram.com/lucasss.hr')
+            if play_tiktok_rect.collidepoint(event.pos):
+                webbrowser.open('https://www.tiktok.com/@lucasss.hr')
+            if play_youtube_rect.collidepoint(event.pos):
+                webbrowser.open('https://www.youtube.com/channel/UCkPeuMkjtWXfFvmCuerXCGw')    
             if play_button_rect.collidepoint(event.pos):
                 #Mettre le jeu en mode "lancé"
                 game.start()
