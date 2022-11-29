@@ -26,8 +26,8 @@ banner_rect.y = math.ceil(screen.get_height() / 12)
 play_button = pygame.image.load('assets/button.png').convert_alpha()
 play_button = pygame.transform.scale(play_button, (250,150))
 play_button_rect = play_button.get_rect()
-play_button_rect.x = math.ceil(screen.get_width() / 2.80)
-play_button_rect.y = math.ceil(screen.get_height() / 1.70)
+play_button_rect.x = math.ceil(screen.get_width() / 2.70)
+play_button_rect.y = math.ceil(screen.get_height() / 1.60)
 
 #Importer le bouton Instagram
 play_insta = pygame.image.load('assets/reseauxsociaux/instagram.png').convert_alpha()
