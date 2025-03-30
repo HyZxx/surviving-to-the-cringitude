@@ -2,6 +2,8 @@ import pygame
 import math
 import webbrowser
 from game import Game
+from PIL import Image
+from PIL import ImageSequence
 pygame.init()
 
 #définir une clock
@@ -50,6 +52,24 @@ play_youtube_rect = play_youtube.get_rect()
 play_youtube_rect.x = screen.get_width() - 190
 play_youtube_rect.y = screen.get_height() - 700
 
+def pilImageToSurface(pilImage):
+    mode, size, data = pilImage.mode, pilImage.size, pilImage.tobytes()
+    return pygame.image.fromstring(data, size, mode).convert_alpha()
+
+def loadGIF(filename):
+    pilImage = Image.open(filename)
+    frames = []
+    if pilImage.format == 'GIF' and pilImage.is_animated:
+        for frame in ImageSequence.Iterator(pilImage):
+            pygameImage = pilImageToSurface(frame.convert('RGBA'))
+            frames.append(pygameImage)
+    else:
+        frames.append(pilImageToSurface(pilImage))
+    return frames
+
+gifFrameList = loadGIF("assets/elodiecosta.gif")
+currentFrame = 0
+
 #charger le jeu
 game = Game()
 
@@ -65,14 +85,19 @@ while running :
     if game.is_playing:
         #déclencher les instructions du jeu
         game.update(screen)
+        
     #Vérifie si le jeu a pas commencé 
     else:
         #Ajoute l'écran de bienvenue
+        screen.fill(0)
+        rect = gifFrameList[currentFrame].get_rect(center = (540, 360))
+        screen.blit(gifFrameList[currentFrame], rect)
+        currentFrame = (currentFrame + 1) % len(gifFrameList)
+        screen.blit(banner, (banner_rect))
         screen.blit(play_button, (play_button_rect))
         screen.blit(play_insta, play_insta_rect)
         screen.blit(play_tiktok, play_tiktok_rect)
         screen.blit(play_youtube, play_youtube_rect)
-        screen.blit(banner, banner_rect)
 
 
     #Mettre a jour l'écran
@@ -96,6 +121,7 @@ while running :
                     game.start()
                     #jouer le son 
                     game.sound_manager.play('click')
+                    game.sound_manager.paused('game_over')
         elif event.type == pygame.KEYUP:
             game.pressed[event.key] = False
 

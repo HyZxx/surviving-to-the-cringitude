@@ -11,3 +11,6 @@ class SoundManager:
 
     def play(self, name):
         self.sounds[name].play()
+
+    def paused(self, name):
+        self.sounds[name].stop()

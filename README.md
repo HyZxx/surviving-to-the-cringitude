@@ -4,7 +4,3 @@
 
 It is a game where you are a knight, you have to kill ogres in order to survive and increase your points !
 
-## Reach Me
-
-- [HyZe](https://www.instagram.com/lucasss.hr) in Instagram
-

@@ -78,7 +78,7 @@ class Game:
         #Rajouter le projectile 
         self.player.all_projectiles.draw(screen)
 
-        #Ensemble d'image du groupe de monstre
+        #Ensemble d'image du groupe de monstre 
         self.all_monsters.draw(screen)
 
         #Ensemble d'image du groupe comet

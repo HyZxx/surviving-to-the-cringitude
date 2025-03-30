@@ -13,7 +13,7 @@ class Monster(animation.AnimateSprite):
         self.attack = 0.4
         self.rect = self.image.get_rect()
         self.rect.x = 1000 + random.randint(0, 300)
-        self.rect.y = 520 - offset
+        self.rect.y = 420 - offset
         self.loot_amount = 10
         self.start_animation()
 

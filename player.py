@@ -14,7 +14,7 @@ class Player(animation.AnimateSprite):
         self.all_projectiles = pygame.sprite.Group()
         self.rect = self.image.get_rect()
         self.rect.x = 400
-        self.rect.y = 500
+        self.rect.y = 400
 
     def damage(self, amount):
         if self.health - amount > amount:
